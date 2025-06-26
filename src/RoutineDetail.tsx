@@ -317,7 +317,10 @@ export default function RoutineDetail({ user, routine, onDeleteRoutine, onMarkCo
           ) : (
             <button
               className="w-full py-3 rounded-lg text-white font-semibold text-lg hover:brightness-110 transition-all duration-200 disabled:bg-gray-400 sm:py-4 sm:text-xl shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2"
-              style={{ backgroundColor: currentRoutine.color || '#3B82F6', '--tw-ring-color': currentRoutine.color || '#3B82F6' }}
+              style={{ 
+                backgroundColor: currentRoutine.color || '#3B82F6', 
+                '--tw-ring-color': currentRoutine.color || '#3B82F6' 
+              } as React.CSSProperties} // 타입 단언 추가
               onClick={handleStartStopwatch}
               disabled={isCompletedToday}
             >
@@ -331,7 +334,11 @@ export default function RoutineDetail({ user, routine, onDeleteRoutine, onMarkCo
         <Link href={`/edit-routine/${currentRoutine.id}`}>
           <a 
             className="inline-block w-full sm:w-auto text-center px-4 py-2 border rounded-lg hover:bg-opacity-10 transition-all duration-200 text-base sm:text-lg shadow-sm hover:shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2"
-            style={{ borderColor: currentRoutine.color || '#3B82F6', color: currentRoutine.color || '#3B82F6', backgroundColor: `rgba(${parseInt((currentRoutine.color || '#3B82F6').slice(1,3), 16)}, ${parseInt((currentRoutine.color || '#3B82F6').slice(3,5), 16)}, ${parseInt((currentRoutine.color || '#3B82F6').slice(5,7), 16)}, 0.05)` }}
+            style={{ 
+              borderColor: currentRoutine.color || '#3B82F6', 
+              color: currentRoutine.color || '#3B82F6', 
+              backgroundColor: `rgba(${parseInt((currentRoutine.color || '#3B82F6').slice(1,3), 16)}, ${parseInt((currentRoutine.color || '#3B82F6').slice(3,5), 16)}, ${parseInt((currentRoutine.color || '#3B82F6').slice(5,7), 16)}, 0.05)` 
+            }}
           >
             루틴 수정
           </a>
